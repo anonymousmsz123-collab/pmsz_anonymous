@@ -3,8 +3,7 @@ import os
 from numba import cuda
 import math
 
-# ================== 参数 ==================
-local_x, local_y, local_z = 512,512,512   # 每个rank的本地块大小
+local_x, local_y, local_z = 512,512,512   
 dtype = np.float64
 ranks_list = [1,2,4,8,16,32,64,128,256] 
 scale = 64.0
@@ -119,7 +118,6 @@ def generate_weak_scaling_samples():
         print(f"Generating weak scaling case: ranks={ranks}, global=({global_x},{global_y},{global_z})")
 
         with open(out_file, "wb") as f:
-            # 分块大小，例如一次 256³
             sub_n = 256
             for bz in range(0, global_z, sub_n):
                 nz = min(sub_n, global_z - bz)
