@@ -8,7 +8,7 @@ dtype = np.float64
 ranks_list = [1,2,4,8,16,32,64,128,256] 
 scale = 64.0
 seed = 42
-output_dir = "./perlin_weak_scaling"
+output_dir = "./"
 os.makedirs(output_dir, exist_ok=True)
 
 # -------------------------
